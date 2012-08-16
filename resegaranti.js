@@ -6,7 +6,14 @@ var departureAndArrival = Array.prototype.filter.call(Array.prototype.map.call(A
 
 //
 
-var body = (departureAndArrival.concat(trainAndStations) + "").replace(/,/g,"\n")
+var body = "";
+
+var date = new Date();
+var currentTime = ("0" + date.getHours()).slice(-2) + ":" +  ("0" + date.getMinutes()).slice(-2);
+
+body += "Faktiskt ankomst: " + currentTime + " <--- OBS!\n";
+
+body += (departureAndArrival.concat(trainAndStations) + "").replace(/,/g,"\n");
 
 body += "\n\n";
 
@@ -20,9 +27,6 @@ body = body.replace(/\n/g,"%0D%0A");
 
 
 var div = document.createElement("div");
-div.innerHTML = '<a href="mailto:gustaf.nk@gmail.com?subject=Resegaranti att hämta ut!&body=' + body +'">Maila mig information för resegaranti</a><br /><a href="http://www.skanetrafiken.se/upload/Dokumentbank/Resegarantin/resegaranti_juli_2012.pdf">Länk till blanketten</a><br /><a href="http://www.skanetrafiken.se/templates/InformationPage.aspx?id=32942&epslanguage=SV">Information om resegarantin</a>'
+div.innerHTML = '<a href="mailto:your.email@here.com?subject=Resegaranti att hämta ut!&body=' + body +'">Maila mig information för resegaranti</a><br /><a href="http://www.skanetrafiken.se/upload/Dokumentbank/Resegarantin/resegaranti_juli_2012.pdf">Länk till blanketten</a><br /><a href="http://www.skanetrafiken.se/templates/InformationPage.aspx?id=32942&epslanguage=SV">Information om resegarantin</a>';
 
 trip.getElementsByClassName("details-container")[0].appendChild(div);
-
-// Debug
-// document.getElementsByTagName("body")[0].parentNode.replaceChild(div, document.getElementsByTagName("body")[0])
