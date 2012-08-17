@@ -4,7 +4,6 @@ var trainAndStations = Array.prototype.map.call(Array.prototype.splice.call(trip
 
 var departureAndArrival = Array.prototype.filter.call(Array.prototype.map.call(Array.prototype.splice.call(trip.getElementsByTagName("strong"), 0, 7), function(e){if (e.textContent.indexOf("Avg") != -1 || e.textContent.indexOf("Ank") != -1) return e.textContent}), function(e){return e != null});
 
-//
 
 var body = "";
 
@@ -27,6 +26,6 @@ body = body.replace(/\n/g,"%0D%0A");
 
 
 var div = document.createElement("div");
-div.innerHTML = '<a href="mailto:your.email@here.com?subject=Resegaranti att hämta ut!&body=' + body +'">Maila mig information för resegaranti</a><br /><a href="http://www.skanetrafiken.se/upload/Dokumentbank/Resegarantin/resegaranti_juli_2012.pdf">Länk till blanketten</a><br /><a href="http://www.skanetrafiken.se/templates/InformationPage.aspx?id=32942&epslanguage=SV">Information om resegarantin</a>';
+div.innerHTML = '<a href="mailto:your.email@here.kom?subject=Resegaranti att hämta ut!&body=' + body +'">Maila mig information för resegaranti</a><br /><a href="http://www.skanetrafiken.se/upload/Dokumentbank/Resegarantin/resegaranti_juli_2012.pdf">Länk till blanketten</a><br /><a href="http://www.skanetrafiken.se/templates/InformationPage.aspx?id=32942&epslanguage=SV">Information om resegarantin</a>';
 
 trip.getElementsByClassName("details-container")[0].appendChild(div);
